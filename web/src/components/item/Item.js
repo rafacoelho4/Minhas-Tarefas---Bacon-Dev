@@ -5,22 +5,23 @@ import api from '../../services/api';
 
 import { MdDelete } from "react-icons/md";
 
-const Item = ({ tarefa }) => {
+const Item = (props) => {
 
-    // async function excluirTarefa(e, idTarefa) {
-    //     e.preventDefault();
-    //     await api.delete(`/membros/${idTarefa}`)
-    //     .then((response) => {
-
-    //     })
-    // }
+    async function excluirTarefa(idTarefa) {
+        await api.delete(`/tarefas/${idTarefa}`)
+        .then((response) => {
+            console.log('Tarefa excluida com sucesso')
+        }).catch(error => {
+            console.log(error)
+        })
+    }
 
     return(
         <div className="item-container">
             <div className="text-group">
-                <p>{tarefa}</p>
+                <p>{props.tarefa}</p>
             </div>
-            <button><MdDelete  className="trash" /></button>
+            <button onClick={() => excluirTarefa(props.id)} ><MdDelete  className="trash" /></button>
         </div>
     );
 }

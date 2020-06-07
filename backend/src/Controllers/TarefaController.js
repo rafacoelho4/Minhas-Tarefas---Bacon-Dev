@@ -13,7 +13,7 @@ module.exports = {
             const Todo = await TarefaModel.create({
                 tarefa
             });
-            return response.status(202).send(tarefa);
+            return response.send(tarefa);
         }
         catch(err) {
             console.log('erro no create');
@@ -26,7 +26,7 @@ module.exports = {
         
         try {
             const tarefas = await TarefaModel.find();
-            return response.status(202).send(tarefas);
+            return response.send(tarefas);
         }
         catch(err) {
             return response.status(404).send({ error: 'Erro ao listar tarefas'});

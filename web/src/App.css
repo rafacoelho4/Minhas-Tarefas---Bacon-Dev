@@ -2,7 +2,8 @@
   text-align: center;
   background-image: url('./img/purple-mountain.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: top;
+  background-attachment: fixed;
 }
 
 .App-logo {
